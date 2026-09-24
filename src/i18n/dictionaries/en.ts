@@ -55,6 +55,9 @@ export const en = {
   footer: {
     builtWith: "Built with Next.js and Tailwind CSS.",
   },
+  theme: {
+    toggle: "Toggle dark mode",
+  },
   language: {
     label: "Language",
     en: "English",

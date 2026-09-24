@@ -11,17 +11,19 @@
   --border: #e2e8f0;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #0b1221;
-    --surface: #111b2e;
-    --fg: #e2e8f0;
-    --muted: #94a3b8;
-    --accent: #5eead4;
-    --accent-soft: rgb(94 234 212 / 0.1);
-    --border: #1e2a40;
-  }
+/* Set on <html> by the inline script in layout.tsx (saved choice or system setting). */
+.dark {
+  color-scheme: dark;
+  --bg: #0b1221;
+  --surface: #111b2e;
+  --fg: #e2e8f0;
+  --muted: #94a3b8;
+  --accent: #5eead4;
+  --accent-soft: rgb(94 234 212 / 0.1);
+  --border: #1e2a40;
 }
+
+@custom-variant dark (&:where(.dark, .dark *));
 
 @theme inline {
   --color-bg: var(--bg);

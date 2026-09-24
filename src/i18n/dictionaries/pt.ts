@@ -57,6 +57,9 @@ export const pt: Dictionary = {
   footer: {
     builtWith: "Feito com Next.js e Tailwind CSS.",
   },
+  theme: {
+    toggle: "Alternar modo escuro",
+  },
   language: {
     label: "Idioma",
     en: "English",

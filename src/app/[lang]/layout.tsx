@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { notFound } from "next/navigation";
 import { hasLocale, locales } from "@/i18n/config";
 import { getDictionary } from "@/i18n/get-dictionary";
+import { themeScript } from "@/lib/theme";
 import "../globals.css";
 
 const geistSans = Geist({
@@ -40,10 +41,15 @@ export default async function RootLayout({
   if (!hasLocale(lang)) notFound();
 
   return (
+    // The theme script changes <html class> before hydration.
     <html
       lang={lang === "pt" ? "pt-BR" : "en"}
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      suppressHydrationWarning
     >
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+      </head>
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
   );
