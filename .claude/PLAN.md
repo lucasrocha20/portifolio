@@ -75,18 +75,21 @@ src/
 - One `<h1>`, with headings in logical order.
 
 ## Implementation steps
-1. `npx create-next-app@latest . --ts --tailwind --eslint --app --src-dir --import-alias "@/*"`
-2. Define the types in `src/types.ts` and fill in `profile.ts` from LinkedIn (experience, skills, bio).
-3. Build `lib/github.ts` (`getProjects()`), then list the chosen repos in `projects.ts`.
-4. Build the section components and compose them in `page.tsx`.
-5. Theme toggle and header active-section highlight (the only client components).
-6. SEO: metadata, OG image, sitemap, robots, JSON-LD.
-7. Add `public/cv.pdf` and a favicon.
-8. Deploy to Vercel. Set `GITHUB_TOKEN` and the site URL env var.
-9. Make a internacionalization to EN and PT, getting language from navegator and a select to change language, make simple of change texts.
+- [x] `npx create-next-app@latest . --ts --tailwind --eslint --app --src-dir --import-alias "@/*"`
+- [x] Define the types in `src/types.ts` and fill in `profile.ts` from LinkedIn (experience, skills, bio).
+- [x] Build `lib/github.ts` (`getProjects()`), then list the chosen repos in `projects.ts`.
+- [ ] Build the section components and compose them in `page.tsx`.
+- [ ] Theme toggle and header active-section highlight (the only client components).
+- [ ] SEO: metadata, OG image, sitemap, robots, JSON-LD, `hreflang` alternates for `/en` and `/pt`.
+- [ ] Add `public/cv-en.pdf`, `public/cv-pt.pdf` and a favicon.
+- [ ] Deploy to Vercel. Set `GITHUB_TOKEN` and the site URL env var.
+- [x] Make a internacionalization to EN and PT, getting language from navegator and a select to change language, make simple of change texts.
+  - Routes `/en` and `/pt` (`app/[lang]`); `src/proxy.ts` redirects `/` using the `NEXT_LOCALE` cookie, then `Accept-Language`, then `en`.
+  - UI texts: `src/i18n/dictionaries/{en,pt}.ts`. Content texts: `{ en, pt }` fields in `profile.ts` / `projects.ts`.
+  - `LanguageSwitcher` select sets the cookie and navigates to the other locale.
 
 ## Out of scope (on purpose)
-Blog/MDX, CMS, i18n, contact form backend, analytics beyond Vercel's, tests beyond type-check and lint. Add these later only if needed.
+Blog/MDX, CMS, contact form backend, analytics beyond Vercel's, tests beyond type-check and lint. Add these later only if needed.
 
 ## Verification
 - `npm run build` passes with no type or lint errors.
