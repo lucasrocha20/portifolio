@@ -4,6 +4,7 @@ export type SocialLinks = {
   github: string;
   linkedin: string;
   email: string;
+  instagram?: string;
 };
 
 export type Experience = {
@@ -23,6 +24,11 @@ export type SkillGroup = {
   skills: string[];
 };
 
+export type Service = {
+  title: Localized;
+  description: Localized;
+};
+
 export type Profile = {
   name: string;
   role: Localized;
@@ -38,6 +44,8 @@ export type Profile = {
   cvUrl?: Localized;
   experiences: Experience[];
   skillGroups: SkillGroup[];
+  /** Shown in the "How can I help you?" section. */
+  services: Service[];
 };
 
 /** A repo selected in `content/projects.ts`. */

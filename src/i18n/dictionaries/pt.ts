@@ -16,6 +16,7 @@ export const pt: Dictionary = {
     contact: "Contato",
     resume: "Currículo",
   },
+  skipToContent: "Pular para o conteúdo",
   hero: {
     viewProjects: "Ver projetos",
     contact: "Fale comigo",
@@ -50,7 +51,11 @@ export const pt: Dictionary = {
   },
   resume: {
     title: "Currículo",
+    text: "Um resumo de uma página da minha experiência, habilidades e formação.",
     download: "Baixar currículo (PT)",
+  },
+  footer: {
+    builtWith: "Feito com Next.js e Tailwind CSS.",
   },
   language: {
     label: "Idioma",

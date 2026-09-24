@@ -32,6 +32,7 @@ export const profile: Profile = {
     github: "https://github.com/lucasrocha20",
     linkedin: "https://www.linkedin.com/in/your-username",
     email: "lucas.rochaadev@gmail.com",
+    instagram: "https://www.instagram.com/your-username",
   },
   cvUrl: { en: "/cv-en.pdf", pt: "/cv-pt.pdf" },
   experiences: [
@@ -87,6 +88,29 @@ export const profile: Profile = {
     {
       name: { en: "Data", pt: "Dados" },
       skills: ["PostgreSQL", "Redis"],
+    },
+  ],
+  services: [
+    {
+      title: { en: "Web applications", pt: "Aplicações web" },
+      description: {
+        en: "Full-stack products built with modern, maintainable technology.",
+        pt: "Produtos full-stack com tecnologia moderna e fácil de manter.",
+      },
+    },
+    {
+      title: { en: "Architecture & scaling", pt: "Arquitetura e escala" },
+      description: {
+        en: "Designing systems that stay fast and reliable as they grow.",
+        pt: "Sistemas projetados para continuar rápidos e confiáveis ao crescer.",
+      },
+    },
+    {
+      title: { en: "Technical consulting", pt: "Consultoria técnica" },
+      description: {
+        en: "Code reviews, technical direction, and mentoring for teams.",
+        pt: "Code review, direção técnica e mentoria para times.",
+      },
     },
   ],
 };
