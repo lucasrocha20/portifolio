@@ -82,6 +82,8 @@ src/
 - [x] Theme toggle and header active-section highlight (the only client components).
 - [x] SEO: metadata, OG image, sitemap, robots, JSON-LD, `hreflang` alternates for `/en` and `/pt`.
 - [ ] Add `public/cv-en.pdf`, `public/cv-pt.pdf` and a favicon.
+  - [x] Favicon: "LR" icon in `src/app/` (`favicon.ico`, `icon.png`, `apple-icon.png`).
+  - [ ] Resume PDFs: waiting for the files.
 - [ ] Deploy to Vercel. Set `GITHUB_TOKEN` and the site URL env var.
 - [x] Make a internacionalization to EN and PT, getting language from navegator and a select to change language, make simple of change texts.
   - Routes `/en` and `/pt` (`app/[lang]`); `src/proxy.ts` redirects `/` using the `NEXT_LOCALE` cookie, then `Accept-Language`, then `en`.
