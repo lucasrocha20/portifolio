@@ -85,6 +85,9 @@ src/
   - [x] Favicon: "LR" icon in `src/app/` (`favicon.ico`, `icon.png`, `apple-icon.png`).
   - [ ] Resume PDFs: waiting for the files.
 - [ ] Deploy to Vercel. Set `GITHUB_TOKEN` and the site URL env var.
+  - [x] Deploy docs in `README.md`, `.env.example`, branch `feat/portfolio` pushed.
+  - [ ] Import the repo at vercel.com/new and set the env vars (your account).
+  - [ ] Replace placeholder content, then merge to `main` for production.
 - [x] Make a internacionalization to EN and PT, getting language from navegator and a select to change language, make simple of change texts.
   - Routes `/en` and `/pt` (`app/[lang]`); `src/proxy.ts` redirects `/` using the `NEXT_LOCALE` cookie, then `Accept-Language`, then `en`.
   - UI texts: `src/i18n/dictionaries/{en,pt}.ts`. Content texts: `{ en, pt }` fields in `profile.ts` / `projects.ts`.
