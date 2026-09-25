@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { notFound } from "next/navigation";
 import { hasLocale, locales, type Locale } from "@/i18n/config";
+import { InlineScript } from "@/components/InlineScript";
 import { profile } from "@/content/profile";
 import { getDictionary } from "@/i18n/get-dictionary";
 import { languageAlternates, localeTags, siteUrl } from "@/lib/site";
@@ -72,10 +73,11 @@ export default async function RootLayout({
     <html
       lang={localeTags[lang]}
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      data-scroll-behavior="smooth"
       suppressHydrationWarning
     >
       <head>
-        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+        <InlineScript html={themeScript} />
       </head>
       <body className="min-h-full flex flex-col">{children}</body>
     </html>

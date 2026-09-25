@@ -9,7 +9,6 @@ export const SECTION_IDS = [
   "projects",
   "skills",
   "services",
-  "resume",
   "contact",
 ] as const;
 
@@ -62,7 +61,7 @@ export function Nav({ labels }: { labels: Dictionary["nav"] }) {
   }
 
   return (
-    <nav aria-label="Main" className="mt-16 hidden lg:block">
+    <nav aria-label="Main" className="mt-10 hidden lg:block">
       <ul className="space-y-1">
         {SECTION_IDS.map((id) => {
           const isActive = id === active;
@@ -72,7 +71,7 @@ export function Nav({ labels }: { labels: Dictionary["nav"] }) {
                 href={`#${id}`}
                 onClick={() => onClick(id)}
                 aria-current={isActive ? "location" : undefined}
-                className="group flex items-center py-2"
+                className="group flex items-center py-1.5"
               >
                 <span
                   className={`mr-4 h-px transition-all group-hover:w-16 group-hover:bg-fg ${

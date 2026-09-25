@@ -5,7 +5,6 @@ import { Experience } from "@/components/Experience";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { Projects } from "@/components/Projects";
-import { Resume } from "@/components/Resume";
 import { Services } from "@/components/Services";
 import { Skills } from "@/components/Skills";
 import { profile } from "@/content/profile";
@@ -59,7 +58,6 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
           <Projects projects={projects} dict={dict} />
           <Skills locale={lang} dict={dict} />
           <Services locale={lang} dict={dict} />
-          <Resume locale={lang} dict={dict} />
           <Contact dict={dict} />
           <Footer dict={dict} />
         </main>

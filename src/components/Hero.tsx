@@ -35,7 +35,7 @@ export function Hero({ locale, dict }: Props) {
           <a
             href={cvUrl}
             download
-            className="inline-flex items-center gap-2 rounded-md px-3 py-2 text-sm font-semibold text-fg transition-colors hover:text-accent"
+            className="inline-flex items-center gap-2 rounded-md border border-accent px-4 py-2 text-sm font-semibold text-accent transition-colors hover:bg-accent-soft"
           >
             <DownloadIcon width={16} height={16} />
             {dict.hero.downloadCv}

@@ -2,6 +2,8 @@ import { profile } from "@/content/profile";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries/en";
 import { Section } from "./Section";
+import avatar from "@/app/assets/avatar.jpg";
+import Image from "next/image";
 
 type Props = { locale: Locale; dict: Dictionary };
 
@@ -14,6 +16,17 @@ export function About({ locale, dict }: Props) {
 
   return (
     <Section id="about" title={dict.about.title}>
+      <div className="flex justify-center w-full">
+      <Image
+        src={avatar}
+        alt={profile.name}
+        width={128}
+        height={128}
+        preload
+        placeholder="blur"
+        className="mb-6 size-28 rounded-full object-cover ring-2 ring-accent ring-offset-4 ring-offset-bg sm:size-32"
+      />
+      </div>
       <div className="space-y-4 leading-relaxed">
         {profile.bio[locale].map((paragraph) => (
           <p key={paragraph}>{paragraph}</p>

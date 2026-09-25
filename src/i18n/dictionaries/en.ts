@@ -12,7 +12,6 @@ export const en = {
     skills: "Skills",
     services: "Services",
     contact: "Contact",
-    resume: "Resume",
   },
   skipToContent: "Skip to content",
   hero: {
@@ -46,11 +45,6 @@ export const en = {
   contact: {
     title: "Contact",
     text: "Open to new opportunities and conversations. Feel free to reach out.",
-  },
-  resume: {
-    title: "Resume",
-    text: "A one-page summary of my experience, skills, and education.",
-    download: "Download resume (EN)",
   },
   footer: {
     builtWith: "Built with Next.js and Tailwind CSS.",
