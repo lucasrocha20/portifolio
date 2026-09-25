@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { notFound } from "next/navigation";
-import { hasLocale, locales } from "@/i18n/config";
+import { hasLocale, locales, type Locale } from "@/i18n/config";
+import { profile } from "@/content/profile";
 import { getDictionary } from "@/i18n/get-dictionary";
+import { languageAlternates, localeTags, siteUrl } from "@/lib/site";
 import { themeScript } from "@/lib/theme";
 import "../globals.css";
 
@@ -30,7 +32,32 @@ export async function generateMetadata({
   if (!hasLocale(lang)) return {};
 
   const { meta } = getDictionary(lang);
-  return { title: meta.title, description: meta.description };
+  const ogLocale = (l: Locale) => localeTags[l].replace("-", "_");
+
+  return {
+    metadataBase: new URL(siteUrl),
+    title: meta.title,
+    description: meta.description,
+    authors: [{ name: profile.name, url: siteUrl }],
+    alternates: {
+      canonical: `/${lang}`,
+      languages: languageAlternates,
+    },
+    openGraph: {
+      type: "profile",
+      url: `/${lang}`,
+      siteName: profile.name,
+      title: meta.title,
+      description: meta.description,
+      locale: ogLocale(lang),
+      alternateLocale: locales.filter((l) => l !== lang).map(ogLocale),
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: meta.title,
+      description: meta.description,
+    },
+  };
 }
 
 export default async function RootLayout({
@@ -43,7 +70,7 @@ export default async function RootLayout({
   return (
     // The theme script changes <html class> before hydration.
     <html
-      lang={lang === "pt" ? "pt-BR" : "en"}
+      lang={localeTags[lang]}
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
       suppressHydrationWarning
     >

@@ -80,7 +80,7 @@ src/
 - [x] Build `lib/github.ts` (`getProjects()`), then list the chosen repos in `projects.ts`.
 - [x] Build the section components and compose them in `page.tsx`.
 - [x] Theme toggle and header active-section highlight (the only client components).
-- [ ] SEO: metadata, OG image, sitemap, robots, JSON-LD, `hreflang` alternates for `/en` and `/pt`.
+- [x] SEO: metadata, OG image, sitemap, robots, JSON-LD, `hreflang` alternates for `/en` and `/pt`.
 - [ ] Add `public/cv-en.pdf`, `public/cv-pt.pdf` and a favicon.
 - [ ] Deploy to Vercel. Set `GITHUB_TOKEN` and the site URL env var.
 - [x] Make a internacionalization to EN and PT, getting language from navegator and a select to change language, make simple of change texts.

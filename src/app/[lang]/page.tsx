@@ -8,9 +8,11 @@ import { Projects } from "@/components/Projects";
 import { Resume } from "@/components/Resume";
 import { Services } from "@/components/Services";
 import { Skills } from "@/components/Skills";
+import { profile } from "@/content/profile";
 import { hasLocale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/get-dictionary";
 import { getProjects } from "@/lib/github";
+import { localeTags, siteUrl } from "@/lib/site";
 
 export default async function Home({ params }: PageProps<"/[lang]">) {
   const { lang } = await params;
@@ -19,8 +21,28 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
   const dict = getDictionary(lang);
   const projects = await getProjects(lang);
 
+  const personJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: profile.name,
+    jobTitle: profile.role[lang],
+    description: profile.tagline[lang],
+    url: `${siteUrl}/${lang}`,
+    email: `mailto:${profile.links.email}`,
+    knowsLanguage: Object.values(localeTags),
+    knowsAbout: profile.skillGroups.flatMap((g) => g.skills),
+    sameAs: [profile.links.github, profile.links.linkedin, profile.links.instagram].filter(Boolean),
+  };
+
   return (
     <div className="mx-auto min-h-screen max-w-6xl px-6 py-12 md:px-12 md:py-20 lg:px-24 lg:py-0">
+      <script
+        type="application/ld+json"
+        // Escape "<" so the JSON can't close the script tag.
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(personJsonLd).replace(/</g, "\\u003c"),
+        }}
+      />
       <a
         href="#content"
         className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:rounded-md focus:bg-accent focus:px-4 focus:py-2 focus:text-bg"
