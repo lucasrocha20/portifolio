@@ -56,7 +56,6 @@ src/
 5. **Skills**: grouped chips (Languages, Frontend, Backend, Cloud/DevOps, Data). No progress bars.
 6. **How can I help you ?**
 7. **Contact**: email (mailto), LinkedIn, GitHub and Instagram. No form.
-8. **Resume**: make a better part to include a resume download, according language selected.
 
 ## UX guidelines
 - Dark mode by default, following the system setting, plus a manual toggle (a class on `<html>` and a small inline script to prevent a flash of the wrong theme).

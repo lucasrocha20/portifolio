@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import type { Dictionary } from "@/i18n/dictionaries/en";
 
-export const SECTION_IDS = [
+const SECTION_IDS = [
   "about",
   "experience",
   "projects",
