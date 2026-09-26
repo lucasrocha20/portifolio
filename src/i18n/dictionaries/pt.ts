@@ -46,10 +46,7 @@ export const pt: Dictionary = {
   },
   contact: {
     title: "Contato",
-    text: "Aberto a novas oportunidades e conversas. Fique à vontade para entrar em contato.",
-  },
-  footer: {
-    builtWith: "Feito com Next.js e Tailwind CSS.",
+    text: "Procurando um engenheiro de software, uma solução personalizada ou uma forma de automatizar seus processos? Estou aberto a novas oportunidades, projetos freelance e parcerias. Vamos conversar?",
   },
   theme: {
     toggle: "Alternar modo escuro",

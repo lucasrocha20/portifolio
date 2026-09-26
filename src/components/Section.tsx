@@ -17,7 +17,7 @@ export function Section({ id, title, children }: Props) {
       <div className="sticky top-0 z-10 -mx-6 mb-6 bg-bg/80 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only">
         <h2
           id={`${id}-title`}
-          className="text-sm font-bold uppercase tracking-widest text-fg"
+          className="text-sm font-bold tracking-widest text-fg uppercase"
         >
           {title}
         </h2>

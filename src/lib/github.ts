@@ -64,7 +64,9 @@ function toProject(
 /** Selected projects merged with live GitHub data; falls back to local config on failure. */
 export async function getProjects(locale: Locale): Promise<Project[]> {
   const repos = await Promise.all(projects.map((p) => fetchRepo(p.repo)));
-  const merged = projects.map((config, i) => toProject(config, repos[i], locale));
+  const merged = projects.map((config, i) =>
+    toProject(config, repos[i], locale),
+  );
 
   // Stable sort: featured first, otherwise keep the configured order.
   return merged.sort((a, b) => Number(b.featured) - Number(a.featured));

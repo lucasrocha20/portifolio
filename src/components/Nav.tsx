@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+
 import type { Dictionary } from "@/i18n/dictionaries/en";
 
 const SECTION_IDS = [
@@ -79,7 +80,7 @@ export function Nav({ labels }: { labels: Dictionary["nav"] }) {
                   }`}
                 />
                 <span
-                  className={`text-xs font-bold uppercase tracking-widest transition-colors group-hover:text-fg ${
+                  className={`text-xs font-bold tracking-widest uppercase transition-colors group-hover:text-fg ${
                     isActive ? "text-accent" : "text-muted"
                   }`}
                 >

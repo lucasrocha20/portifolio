@@ -1,5 +1,6 @@
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries/en";
+
 import { Hero } from "./Hero";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 import { Nav } from "./Nav";

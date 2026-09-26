@@ -1,6 +1,7 @@
 import { profile } from "@/content/profile";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries/en";
+
 import { DownloadIcon } from "./icons";
 
 type Props = { locale: Locale; dict: Dictionary };

@@ -1,5 +1,6 @@
 import type { Dictionary } from "@/i18n/dictionaries/en";
 import type { Project } from "@/types";
+
 import { ProjectCard } from "./ProjectCard";
 import { Section } from "./Section";
 

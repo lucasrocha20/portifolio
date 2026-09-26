@@ -1,9 +1,11 @@
 # Portfolio: Implementation Plan
 
 ## Goal
+
 A fast single-page portfolio to me "Lucas Rocha" for a senior software engineer. It should be easy to read, rank well in search, and be easy to update. No CMS, no database, no auth. Use the example of https://brittanychiang.com/, non neccessarilly equal. Implement good pallet of colors.
 
 ## Stack
+
 - **Next.js (App Router, latest) + TypeScript (strict)**
 - **Tailwind CSS**: no component library
 - **next/font**: self-hosted font (e.g. Inter / Geist)
@@ -11,16 +13,18 @@ A fast single-page portfolio to me "Lucas Rocha" for a senior software engineer.
 - Nothing else. Add packages only when they're clearly needed.
 
 ## Data strategy (the key decision)
-| Source | How | Why |
-|---|---|---|
-| GitHub projects | `src/content/projects.ts` lists the **repo names I choose**, each with an optional custom blurb or highlight. At build time, fetch the metadata (description, stars, language, topics, homepage, updated_at) from the GitHub REST API. | I choose what's shown, and stars and descriptions stay current |
-| LinkedIn experience/skills | Copied by hand into `src/content/profile.ts` (typed) | LinkedIn has no public API and scraping it breaks the ToS. Updating by hand is fine because this data rarely changes. |
+
+| Source                     | How                                                                                                                                                                                                                                    | Why                                                                                                                   |
+| -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
+| GitHub projects            | `src/content/projects.ts` lists the **repo names I choose**, each with an optional custom blurb or highlight. At build time, fetch the metadata (description, stars, language, topics, homepage, updated_at) from the GitHub REST API. | I choose what's shown, and stars and descriptions stay current                                                        |
+| LinkedIn experience/skills | Copied by hand into `src/content/profile.ts` (typed)                                                                                                                                                                                   | LinkedIn has no public API and scraping it breaks the ToS. Updating by hand is fine because this data rarely changes. |
 
 - Fetch with `fetch(url, { next: { revalidate: 86400 } })` so the data refreshes daily through ISR.
 - Optional `GITHUB_TOKEN` env var to avoid rate limits (60 req/h without a token).
 - If the GitHub call fails, fall back to the local blurb so the build never breaks.
 
 ## Folder structure
+
 ```
 src/
   app/
@@ -49,6 +53,7 @@ src/
 ```
 
 ## Page sections (in order)
+
 1. **Hero**: name, role ("Senior Software Engineer"), a one-line value statement, CTAs (View projects, Contact, Download CV), GitHub/LinkedIn icons.
 2. **About**: 2–3 short paragraphs and a few quick facts (years of experience, location, focus areas).
 3. **Experience**: vertical timeline showing company, title, period, 2–4 impact bullets, and a tech tag list. Most recent first.
@@ -58,6 +63,7 @@ src/
 7. **Contact**: email (mailto), LinkedIn, GitHub and Instagram. No form.
 
 ## UX guidelines
+
 - Dark mode by default, following the system setting, plus a manual toggle (a class on `<html>` and a small inline script to prevent a flash of the wrong theme).
 - Clean typography, generous whitespace, max width ~`72rem`, one accent color.
 - Sticky header whose anchor links highlight the active section. Smooth scrolling.
@@ -66,6 +72,7 @@ src/
 - Motion: CSS fade-in only. No animation library.
 
 ## SEO
+
 - `metadata` in `layout.tsx`: title template, description, canonical URL, `metadataBase`, Open Graph and Twitter cards.
 - `opengraph-image.tsx` generated with `next/og`.
 - `sitemap.ts` and `robots.ts`.
@@ -74,6 +81,7 @@ src/
 - One `<h1>`, with headings in logical order.
 
 ## Implementation steps
+
 - [x] `npx create-next-app@latest . --ts --tailwind --eslint --app --src-dir --import-alias "@/*"`
 - [x] Define the types in `src/types.ts` and fill in `profile.ts` from LinkedIn (experience, skills, bio).
 - [x] Build `lib/github.ts` (`getProjects()`), then list the chosen repos in `projects.ts`.
@@ -93,9 +101,11 @@ src/
   - `LanguageSwitcher` select sets the cookie and navigates to the other locale.
 
 ## Out of scope (on purpose)
+
 Blog/MDX, CMS, contact form backend, analytics beyond Vercel's, tests beyond type-check and lint. Add these later only if needed.
 
 ## Verification
+
 - `npm run build` passes with no type or lint errors.
 - `npm run dev`: every section renders, and projects show live GitHub data.
 - If the GitHub token is missing or wrong, the site still builds and falls back to the local blurbs.

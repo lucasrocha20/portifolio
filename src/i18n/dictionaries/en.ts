@@ -44,10 +44,7 @@ export const en = {
   },
   contact: {
     title: "Contact",
-    text: "Open to new opportunities and conversations. Feel free to reach out.",
-  },
-  footer: {
-    builtWith: "Built with Next.js and Tailwind CSS.",
+    text: "Open to new opportunities, freelance projects, and collaborations. Whether you're looking for a software engineer to join your team or to build and automate a solution for your business, feel free to reach out.",
   },
   theme: {
     toggle: "Toggle dark mode",

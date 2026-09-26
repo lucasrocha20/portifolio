@@ -1,13 +1,15 @@
+import "../globals.css";
+
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { notFound } from "next/navigation";
-import { hasLocale, locales, type Locale } from "@/i18n/config";
+
 import { InlineScript } from "@/components/InlineScript";
 import { profile } from "@/content/profile";
+import { hasLocale, type Locale, locales } from "@/i18n/config";
 import { getDictionary } from "@/i18n/get-dictionary";
 import { languageAlternates, localeTags, siteUrl } from "@/lib/site";
 import { themeScript } from "@/lib/theme";
-import "../globals.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -79,7 +81,7 @@ export default async function RootLayout({
       <head>
         <InlineScript html={themeScript} />
       </head>
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="flex min-h-full flex-col">{children}</body>
     </html>
   );
 }

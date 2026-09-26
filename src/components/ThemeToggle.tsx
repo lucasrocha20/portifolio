@@ -18,7 +18,7 @@ export function ThemeToggle({ label }: { label: string }) {
       onClick={toggle}
       aria-label={label}
       title={label}
-      className="rounded-md p-1.5 text-muted transition-colors hover:text-accent"
+      className="cursor-pointer rounded-md p-1.5 text-muted transition-colors hover:text-accent"
     >
       {/* Sun in dark mode, moon in light mode; pure CSS, so no hydration mismatch. */}
       <svg

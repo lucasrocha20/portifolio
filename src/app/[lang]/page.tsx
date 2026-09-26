@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+
 import { About } from "@/components/About";
 import { Contact } from "@/components/Contact";
 import { Experience } from "@/components/Experience";
@@ -30,14 +31,17 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
     email: `mailto:${profile.links.email}`,
     knowsLanguage: Object.values(localeTags),
     knowsAbout: profile.skillGroups.flatMap((g) => g.skills),
-    sameAs: [profile.links.github, profile.links.linkedin, profile.links.instagram].filter(Boolean),
+    sameAs: [
+      profile.links.github,
+      profile.links.linkedin,
+      profile.links.instagram,
+    ].filter(Boolean),
   };
 
   return (
     <div className="mx-auto min-h-screen max-w-6xl px-6 py-12 md:px-12 md:py-20 lg:px-24 lg:py-0">
       <script
         type="application/ld+json"
-        // Escape "<" so the JSON can't close the script tag.
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(personJsonLd).replace(/</g, "\\u003c"),
         }}
@@ -59,7 +63,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
           <Skills locale={lang} dict={dict} />
           <Services locale={lang} dict={dict} />
           <Contact dict={dict} />
-          <Footer dict={dict} />
+          <Footer />
         </main>
       </div>
     </div>

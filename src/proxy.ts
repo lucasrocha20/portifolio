@@ -1,5 +1,12 @@
-import { NextResponse, type NextRequest } from "next/server";
-import { defaultLocale, hasLocale, LOCALE_COOKIE, locales, type Locale } from "@/i18n/config";
+import { type NextRequest, NextResponse } from "next/server";
+
+import {
+  defaultLocale,
+  hasLocale,
+  type Locale,
+  LOCALE_COOKIE,
+  locales,
+} from "@/i18n/config";
 
 /**
  * Picks the best supported locale from Accept-Language, which the browser builds
@@ -9,19 +16,21 @@ import { defaultLocale, hasLocale, LOCALE_COOKIE, locales, type Locale } from "@
 function localeFromHeader(header: string | null): Locale | undefined {
   if (!header) return undefined;
 
-  return header
-    .split(",")
-    .map((part) => {
-      const [tag, ...params] = part.split(";").map((s) => s.trim());
-      const qParam = params.find((p) => p.startsWith("q="));
-      const q = qParam ? Number(qParam.slice(2)) : 1;
-      return { lang: tag.split("-")[0].toLowerCase(), q };
-    })
-    // q=0 means "not acceptable"; drop it and anything malformed.
-    .filter(({ q }) => q > 0)
-    .sort((a, b) => b.q - a.q)
-    .map(({ lang }) => lang)
-    .find(hasLocale);
+  return (
+    header
+      .split(",")
+      .map((part) => {
+        const [tag, ...params] = part.split(";").map((s) => s.trim());
+        const qParam = params.find((p) => p.startsWith("q="));
+        const q = qParam ? Number(qParam.slice(2)) : 1;
+        return { lang: tag.split("-")[0].toLowerCase(), q };
+      })
+      // q=0 means "not acceptable"; drop it and anything malformed.
+      .filter(({ q }) => q > 0)
+      .sort((a, b) => b.q - a.q)
+      .map(({ lang }) => lang)
+      .find(hasLocale)
+  );
 }
 
 export function proxy(request: NextRequest) {

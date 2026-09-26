@@ -1,5 +1,6 @@
 import type { Dictionary } from "@/i18n/dictionaries/en";
 import type { Project } from "@/types";
+
 import { ArrowUpRightIcon, GitHubIcon, StarIcon } from "./icons";
 import { Tag } from "./Section";
 
@@ -28,7 +29,9 @@ export function ProjectCard({ project, labels }: Props) {
       </div>
 
       {project.description && (
-        <p className="mt-2 flex-1 text-sm leading-relaxed">{project.description}</p>
+        <p className="mt-2 flex-1 text-sm leading-relaxed">
+          {project.description}
+        </p>
       )}
 
       {project.topics.length > 0 && (
