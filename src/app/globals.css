@@ -37,6 +37,17 @@
   --font-mono: var(--font-geist-mono);
 }
 
+/* Height of the sticky SiteHeader: two rows on mobile, one from `sm` (40rem) up. */
+:root {
+  --header-h: 6rem;
+}
+
+@media (width >= 40rem) {
+  :root {
+    --header-h: 4rem;
+  }
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -70,6 +81,27 @@ body {
 
 .fade-in {
   animation: fade-in 0.6s ease-out both;
+}
+
+/* Printing (e.g. the recruiters page as a resume): always light, no animation. */
+@media print {
+  :root,
+  .dark {
+    color-scheme: light;
+    --bg: #ffffff;
+    --surface: #ffffff;
+    --fg: #0f172a;
+    --muted: #334155;
+    --accent: #0f766e;
+    --accent-soft: rgb(15 118 110 / 0.1);
+    --border: #e2e8f0;
+  }
+  .fade-in {
+    animation: none;
+  }
+  * {
+    transition: none !important;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

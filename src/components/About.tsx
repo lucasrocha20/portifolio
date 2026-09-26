@@ -1,15 +1,20 @@
-import Image from "next/image";
-
-import avatar from "@/app/assets/avatar.jpg";
 import { profile } from "@/content/profile";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries/en";
 
-import { Section } from "./Section";
+import { Section, type TitleStyle } from "./Section";
 
-type Props = { locale: Locale; dict: Dictionary };
+type Props = {
+  locale: Locale;
+  dict: Dictionary;
+  /** Only the first bio paragraph (home). */
+  short?: boolean;
+  titleStyle?: TitleStyle;
+};
 
-export function About({ locale, dict }: Props) {
+export function About({ locale, dict, short = false, titleStyle }: Props) {
+  const bio = profile.bio[locale];
+  const paragraphs = short ? bio.slice(0, 1) : bio;
   const facts = [
     {
       label: dict.about.yearsOfExperience,
@@ -20,20 +25,9 @@ export function About({ locale, dict }: Props) {
   ];
 
   return (
-    <Section id="about" title={dict.about.title}>
-      <div className="flex w-full justify-center">
-        <Image
-          src={avatar}
-          alt={profile.name}
-          width={128}
-          height={128}
-          preload
-          placeholder="blur"
-          className="mb-6 size-28 rounded-full object-cover ring-2 ring-accent ring-offset-4 ring-offset-bg sm:size-32"
-        />
-      </div>
-      <div className="space-y-4 leading-relaxed">
-        {profile.bio[locale].map((paragraph) => (
+    <Section id="about" title={dict.about.title} titleStyle={titleStyle}>
+      <div className="max-w-3xl space-y-4 leading-relaxed">
+        {paragraphs.map((paragraph) => (
           <p key={paragraph}>{paragraph}</p>
         ))}
       </div>

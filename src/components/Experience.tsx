@@ -20,7 +20,10 @@ export function Experience({ locale, dict }: Props) {
             ? formatMonth(job.end, locale)
             : dict.experience.present;
           return (
-            <li key={`${job.company}-${job.start}`} className="relative">
+            <li
+              key={`${job.company}-${job.start}`}
+              className="relative print:break-inside-avoid"
+            >
               <span
                 aria-hidden
                 className="absolute top-1.5 -left-[29px] size-2.5 rounded-full border-2 border-accent bg-bg"

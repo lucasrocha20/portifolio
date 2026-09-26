@@ -5,6 +5,8 @@ export type SocialLinks = {
   linkedin: string;
   email: string;
   instagram?: string;
+  /** Number with country code, digits only (e.g. "5585999999999"); used for wa.me links. */
+  whatsapp?: string;
 };
 
 export type Experience = {
@@ -27,6 +29,34 @@ export type SkillGroup = {
 export type Service = {
   title: Localized;
   description: Localized;
+  /** The client's pain this service addresses. */
+  problem: Localized;
+  /** What the client gets at the end. */
+  outcome: Localized;
+  tech: string[];
+};
+
+/** A big number on the services page. Localized because number formats differ. */
+export type Metric = {
+  value: Localized;
+  label: Localized;
+};
+
+/** A project told as problem -> solution -> result on the services page. */
+export type CaseStudy = {
+  title: string;
+  /** Repo name under GITHUB_USERNAME, linked as the source. */
+  repo?: string;
+  url?: string;
+  problem: Localized;
+  solution: Localized;
+  result: Localized;
+  tech: string[];
+};
+
+export type FaqItem = {
+  question: Localized;
+  answer: Localized;
 };
 
 export type Profile = {
@@ -37,7 +67,16 @@ export type Profile = {
   /** Short paragraphs for the About section. */
   bio: Localized<string[]>;
   location: Localized;
+  /** e.g. "UTC−3"; shown next to the location for recruiters. */
+  timeZone: string;
   yearsOfExperience: number;
+  /** Status line on the recruiters page, e.g. "Open to new opportunities". */
+  availability: Localized;
+  workModel: Localized;
+  /** Spoken languages, with level. */
+  languages: Localized<string[]>;
+  /** Short "main stack" line for recruiters. */
+  mainStack: string[];
   focusAreas: Localized<string[]>;
   links: SocialLinks;
   /** Resume file per language, e.g. { en: "/cv-en.pdf", pt: "/cv-pt.pdf" }. */
@@ -46,6 +85,10 @@ export type Profile = {
   skillGroups: SkillGroup[];
   /** Shown in the "How can I help you?" section. */
   services: Service[];
+  /** Results on the services page; years of experience is added from `yearsOfExperience`. */
+  metrics: Metric[];
+  caseStudies: CaseStudy[];
+  faq: FaqItem[];
 };
 
 /** A repo selected in `content/projects.ts`. */

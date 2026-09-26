@@ -21,7 +21,18 @@ export const profile: Profile = {
     ],
   },
   location: { en: "Brazil", pt: "Brasil" },
+  timeZone: "UTC−3",
   yearsOfExperience: 7,
+  availability: {
+    en: "Open to new opportunities",
+    pt: "Aberto a novas oportunidades",
+  },
+  workModel: { en: "Remote", pt: "Remoto" },
+  mainStack: ["TypeScript", "Node.js", "NestJS", "React", "Next.js", ".NET"],
+  languages: {
+    en: ["Portuguese (native)", "English"],
+    pt: ["Português (nativo)", "Inglês"],
+  },
   focusAreas: {
     en: ["Backend", "Frontend", "Cloud", "Automation", "AI & Integrations"],
     pt: ["Backend", "Frontend", "Cloud", "Automação", "IA & Integrações"],
@@ -31,6 +42,7 @@ export const profile: Profile = {
     linkedin: "https://www.linkedin.com/in/dev-lucas-rocha",
     email: "lucas_rocha.14@outlook.com",
     instagram: "https://www.instagram.com/rochalucasdev",
+    whatsapp: "5585996973035",
   },
   cvUrl: { en: "/cv-en.pdf", pt: "/cv-pt.pdf" },
   experiences: [
@@ -172,12 +184,7 @@ export const profile: Profile = {
           "Prestei suporte técnico e treinamento para implantação de sistemas.",
         ],
       },
-      tech: [
-        "Networking",
-        "CCTV",
-        "Hardware",
-        "Software Support",
-      ],
+      tech: ["Networking", "CCTV", "Hardware", "Software Support"],
     },
   ],
   skillGroups: [
@@ -255,6 +262,15 @@ export const profile: Profile = {
         en: "Scalable web applications and backend systems built around your business needs.",
         pt: "Aplicações web e sistemas backend escaláveis, desenvolvidos de acordo com as necessidades do seu negócio.",
       },
+      problem: {
+        en: "Spreadsheets and off-the-shelf tools no longer fit how your business works.",
+        pt: "Planilhas e ferramentas prontas já não atendem à forma como o seu negócio funciona.",
+      },
+      outcome: {
+        en: "A web application built for your process, ready to grow with you, with code and documentation you own.",
+        pt: "Uma aplicação web feita para o seu processo, pronta para crescer com você, com código e documentação que são seus.",
+      },
+      tech: ["TypeScript", "React", "Next.js", "Node.js", "NestJS", ".NET"],
     },
     {
       title: { en: "Process automation", pt: "Automação de processos" },
@@ -262,6 +278,22 @@ export const profile: Profile = {
         en: "Automating repetitive workflows, integrations, and business processes with modern technologies.",
         pt: "Automação de processos, integrações e tarefas repetitivas usando tecnologias modernas.",
       },
+      problem: {
+        en: "Your team spends hours on repetitive tasks: copying data, sending notifications, opening tickets.",
+        pt: "Sua equipe perde horas com tarefas repetitivas: copiar dados, enviar notificações, abrir chamados.",
+      },
+      outcome: {
+        en: "Workflows that run on their own, fewer manual errors, and hours back for your team every month.",
+        pt: "Fluxos que rodam sozinhos, menos erros manuais e horas de volta para a sua equipe todo mês.",
+      },
+      tech: [
+        "Node.js",
+        "Queues (BullMQ)",
+        "REST APIs",
+        "CI/CD",
+        "AWS",
+        "Azure",
+      ],
     },
     {
       title: { en: "AI & integrations", pt: "IA e integrações" },
@@ -269,5 +301,150 @@ export const profile: Profile = {
         en: "AI-powered solutions and API integrations that connect systems and streamline operations.",
         pt: "Soluções com IA e integrações entre APIs e sistemas para simplificar e otimizar operações.",
       },
-    }],
+      problem: {
+        en: "Your systems don't talk to each other, and information like documents or leads is handled by hand.",
+        pt: "Seus sistemas não conversam entre si, e informações como documentos ou leads são tratadas manualmente.",
+      },
+      outcome: {
+        en: "Connected systems and AI features that extract, classify and act on data, with validation you can trust.",
+        pt: "Sistemas conectados e recursos de IA que extraem, classificam e agem sobre os dados, com validação confiável.",
+      },
+      tech: [
+        "OpenAI",
+        "REST APIs",
+        "Webhooks",
+        "HubSpot",
+        "WhatsApp",
+        "PostgreSQL",
+      ],
+    },
+  ],
+  metrics: [
+    {
+      value: { en: "2,606 h", pt: "2.606 h" },
+      label: {
+        en: "operational hours saved per month through automation",
+        pt: "horas operacionais economizadas por mês com automação",
+      },
+    },
+    {
+      value: { en: "R$492K", pt: "R$492 mil" },
+      label: {
+        en: "in operational costs saved per month",
+        pt: "em custos operacionais economizados por mês",
+      },
+    },
+  ],
+  caseStudies: [
+    {
+      title: "DocuMind AI",
+      repo: "DocuMindAI",
+      problem: {
+        en: "Invoice data is typed by hand from PDFs into other systems: slow, and easy to get wrong.",
+        pt: "Dados de notas fiscais são digitados à mão a partir de PDFs em outros sistemas: lento e sujeito a erros.",
+      },
+      solution: {
+        en: "Upload the PDFs and a background pipeline extracts supplier, totals and every line item with an LLM, validates each field, and saves it to the database. A dashboard shows progress and results live.",
+        pt: "Basta enviar os PDFs: um pipeline em segundo plano extrai fornecedor, totais e cada item com um LLM, valida todos os campos e salva no banco. Um painel mostra o progresso e os resultados em tempo real.",
+      },
+      result: {
+        en: "Structured invoice data with no manual typing. AI output is never trusted as-is, and the same document is never saved twice.",
+        pt: "Dados estruturados das notas sem digitação manual. A resposta da IA nunca é aceita sem validação, e o mesmo documento nunca é salvo duas vezes.",
+      },
+      tech: ["NestJS", "React", "OpenAI", "PostgreSQL", "BullMQ", "Zod"],
+    },
+    {
+      title: "LeadFlow",
+      repo: "LeadFlow",
+      problem: {
+        en: "Leads from web forms wait hours for a reply, follow-ups are forgotten, and the CRM is always out of date.",
+        pt: "Leads de formulários esperam horas por uma resposta, os follow-ups são esquecidos e o CRM está sempre desatualizado.",
+      },
+      solution: {
+        en: "Captures each lead, scores it with configurable rules, contacts it right away over WhatsApp and email, follows up on a schedule until it replies, and keeps HubSpot in sync.",
+        pt: "Captura cada lead, pontua com regras configuráveis, faz o primeiro contato na hora por WhatsApp e e-mail, segue com follow-ups até a resposta e mantém o HubSpot sincronizado.",
+      },
+      result: {
+        en: "From form submission to CRM in under a second with no manual work, a full audit trail per lead, and no duplicate messages on retries.",
+        pt: "Do formulário ao CRM em menos de um segundo, sem trabalho manual, com histórico completo de cada lead e sem mensagens duplicadas em novas tentativas.",
+      },
+      tech: [
+        "Node.js",
+        "Fastify",
+        "PostgreSQL",
+        "BullMQ",
+        "HubSpot",
+        "WhatsApp",
+      ],
+    },
+    {
+      title: "Marketingia",
+      repo: "marketing-ia",
+      problem: {
+        en: "Creators and marketers spend time every week coming up with Instagram content ideas.",
+        pt: "Criadores e profissionais de marketing gastam tempo toda semana pensando em ideias de conteúdo para o Instagram.",
+      },
+      solution: {
+        en: "Enter a niche and a short description, and the app uses OpenAI to suggest a ready-to-use post: format (Reels, carousel, Stories), hook, body and call to action.",
+        pt: "Informe um nicho e uma descrição curta, e o app usa a OpenAI para sugerir uma publicação pronta: formato (Reels, carrossel, Stories), gancho, desenvolvimento e chamada para ação.",
+      },
+      result: {
+        en: "Concrete, engagement-focused post ideas in seconds instead of a blank page.",
+        pt: "Ideias de publicação concretas e focadas em engajamento em segundos, em vez de uma página em branco.",
+      },
+      tech: ["NestJS", "React", "OpenAI", "Docker"],
+    },
+  ],
+  faq: [
+    {
+      question: {
+        en: "Do you work remotely?",
+        pt: "Você trabalha remotamente?",
+      },
+      answer: {
+        en: "Yes, 100% remote from Brazil (UTC−3). I adapt to your team's tools and meeting schedule.",
+        pt: "Sim, 100% remoto, do Brasil (UTC−3). Eu me adapto às ferramentas e aos horários de reunião da sua equipe.",
+      },
+    },
+    {
+      question: {
+        en: "How long does a project take?",
+        pt: "Quanto tempo leva um projeto?",
+      },
+      answer: {
+        en: "It depends on the scope. After our first conversation I send a proposal with the steps and an estimated timeline.",
+        pt: "Depende do escopo. Depois da nossa primeira conversa eu envio uma proposta com as etapas e um prazo estimado.",
+      },
+    },
+    {
+      question: {
+        en: "Can you work with my existing systems?",
+        pt: "Você trabalha com os sistemas que eu já uso?",
+      },
+      answer: {
+        en: "Yes. Much of my work is integrating with existing systems through APIs, webhooks and databases, without starting from scratch.",
+        pt: "Sim. Boa parte do meu trabalho é integrar sistemas existentes por meio de APIs, webhooks e bancos de dados, sem começar do zero.",
+      },
+    },
+    {
+      question: {
+        en: "Which technologies do you use?",
+        pt: "Quais tecnologias você usa?",
+      },
+      answer: {
+        en: "Mainly TypeScript, Node.js, NestJS, React and Next.js, plus .NET, PostgreSQL, AWS/Azure and OpenAI. I pick what fits your project and team.",
+        pt: "Principalmente TypeScript, Node.js, NestJS, React e Next.js, além de .NET, PostgreSQL, AWS/Azure e OpenAI. Escolho o que se encaixa no seu projeto e na sua equipe.",
+      },
+    },
+    {
+      question: {
+        en: "How do we get started?",
+        pt: "Como começamos?",
+      },
+      answer: {
+        en: "Send me a message by email or WhatsApp describing what you need. We schedule a short call to understand the problem, and I follow up with a proposal.",
+        pt: "Me mande uma mensagem por e-mail ou WhatsApp contando o que você precisa. Marcamos uma conversa rápida para entender o problema e eu retorno com uma proposta.",
+      },
+    },
+  ],
 };

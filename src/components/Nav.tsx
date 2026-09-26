@@ -4,20 +4,18 @@ import { useEffect, useRef, useState } from "react";
 
 import type { Dictionary } from "@/i18n/dictionaries/en";
 
-const SECTION_IDS = [
-  "about",
-  "experience",
-  "projects",
-  "skills",
-  "services",
-  "contact",
-] as const;
+/** Ids of the sections the nav can link to (each has a label in `dict.nav`). */
+export type SectionId = keyof Dictionary["nav"];
 
-type SectionId = (typeof SECTION_IDS)[number];
+type Props = {
+  /** Sections on the page, in order; each must render with this `id`. */
+  sections: readonly SectionId[];
+  labels: Dictionary["nav"];
+};
 
 /** Desktop nav; highlights the last section whose top passed the upper third of the viewport. */
-export function Nav({ labels }: { labels: Dictionary["nav"] }) {
-  const [active, setActive] = useState<SectionId>(SECTION_IDS[0]);
+export function Nav({ sections, labels }: Props) {
+  const [active, setActive] = useState<SectionId>(sections[0]);
   // While scrolling to a clicked link, keep that link active.
   const clicked = useRef<SectionId | null>(null);
 
@@ -28,11 +26,11 @@ export function Nav({ labels }: { labels: Dictionary["nav"] }) {
       const { innerHeight, scrollY } = window;
       // The last sections are too short to reach the line, so the bottom of the page wins.
       if (innerHeight + scrollY >= document.documentElement.scrollHeight - 2) {
-        return setActive(SECTION_IDS[SECTION_IDS.length - 1]);
+        return setActive(sections[sections.length - 1]);
       }
 
-      let current: SectionId = SECTION_IDS[0];
-      for (const id of SECTION_IDS) {
+      let current: SectionId = sections[0];
+      for (const id of sections) {
         const top = document.getElementById(id)?.getBoundingClientRect().top;
         if (top !== undefined && top <= innerHeight / 3) current = id;
       }
@@ -50,7 +48,7 @@ export function Nav({ labels }: { labels: Dictionary["nav"] }) {
       window.removeEventListener("scroll", update);
       window.removeEventListener("scrollend", release);
     };
-  }, []);
+  }, [sections]);
 
   function onClick(id: SectionId) {
     clicked.current = id;
@@ -64,7 +62,7 @@ export function Nav({ labels }: { labels: Dictionary["nav"] }) {
   return (
     <nav aria-label="Main" className="mt-10 hidden lg:block">
       <ul className="space-y-1">
-        {SECTION_IDS.map((id) => {
+        {sections.map((id) => {
           const isActive = id === active;
           return (
             <li key={id}>

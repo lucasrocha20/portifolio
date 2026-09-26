@@ -5,10 +5,12 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { notFound } from "next/navigation";
 
 import { InlineScript } from "@/components/InlineScript";
+import { SiteHeader } from "@/components/SiteHeader";
 import { profile } from "@/content/profile";
-import { hasLocale, type Locale, locales } from "@/i18n/config";
+import { hasLocale, locales } from "@/i18n/config";
 import { getDictionary } from "@/i18n/get-dictionary";
-import { languageAlternates, localeTags, siteUrl } from "@/lib/site";
+import { pageMetadata } from "@/lib/metadata";
+import { localeTags, siteUrl } from "@/lib/site";
 import { themeScript } from "@/lib/theme";
 
 const geistSans = Geist({
@@ -34,32 +36,11 @@ export async function generateMetadata({
   const { lang } = await params;
   if (!hasLocale(lang)) return {};
 
-  const { meta } = getDictionary(lang);
-  const ogLocale = (l: Locale) => localeTags[l].replace("-", "_");
-
   return {
     metadataBase: new URL(siteUrl),
-    title: meta.title,
-    description: meta.description,
     authors: [{ name: profile.name, url: siteUrl }],
-    alternates: {
-      canonical: `/${lang}`,
-      languages: languageAlternates,
-    },
-    openGraph: {
-      type: "profile",
-      url: `/${lang}`,
-      siteName: profile.name,
-      title: meta.title,
-      description: meta.description,
-      locale: ogLocale(lang),
-      alternateLocale: locales.filter((l) => l !== lang).map(ogLocale),
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: meta.title,
-      description: meta.description,
-    },
+    // Home tags; the other pages return their own from `pageMetadata`.
+    ...pageMetadata(lang, "", getDictionary(lang).meta),
   };
 }
 
@@ -69,6 +50,8 @@ export default async function RootLayout({
 }: LayoutProps<"/[lang]">) {
   const { lang } = await params;
   if (!hasLocale(lang)) notFound();
+
+  const dict = getDictionary(lang);
 
   return (
     // The theme script changes <html class> before hydration.
@@ -81,7 +64,17 @@ export default async function RootLayout({
       <head>
         <InlineScript html={themeScript} />
       </head>
-      <body className="flex min-h-full flex-col">{children}</body>
+      <body className="flex min-h-full flex-col">
+        {/* Every page must have <main id="content">. */}
+        <a
+          href="#content"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:rounded-md focus:bg-accent focus:px-4 focus:py-2 focus:text-bg"
+        >
+          {dict.skipToContent}
+        </a>
+        <SiteHeader locale={lang} dict={dict} />
+        {children}
+      </body>
     </html>
   );
 }

@@ -16,15 +16,15 @@ export const projects: ProjectConfig[] = [
   {
     repo: "LeadFlow",
     description: {
-      en: "TODO: short description of LeadFlow.",
-      pt: "TODO: descrição curta do LeadFlow.",
+      en: "Automated lead follow-up: captures, scores and contacts leads over WhatsApp and email, and keeps HubSpot in sync.",
+      pt: "Follow-up automático de leads: captura, pontua e contata leads por WhatsApp e e-mail, e mantém o HubSpot sincronizado.",
     },
   },
   {
     repo: "marketing-ia",
     description: {
-      en: "TODO: short description of marketing-ia.",
-      pt: "TODO: descrição curta do marketing-ia.",
+      en: "AI-generated Instagram content ideas (Reels, carousels, Stories) from a niche and a short description.",
+      pt: "Ideias de conteúdo para Instagram (Reels, carrosséis, Stories) geradas com IA a partir de um nicho e uma descrição.",
     },
   },
 ];

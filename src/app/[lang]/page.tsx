@@ -2,17 +2,15 @@ import { notFound } from "next/navigation";
 
 import { About } from "@/components/About";
 import { Contact } from "@/components/Contact";
-import { Experience } from "@/components/Experience";
 import { Footer } from "@/components/Footer";
-import { Header } from "@/components/Header";
+import { Hero } from "@/components/Hero";
+import { PathCards } from "@/components/PathCards";
 import { Projects } from "@/components/Projects";
-import { Services } from "@/components/Services";
-import { Skills } from "@/components/Skills";
 import { profile } from "@/content/profile";
 import { hasLocale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/get-dictionary";
 import { getProjects } from "@/lib/github";
-import { localeTags, siteUrl } from "@/lib/site";
+import { localePath, localeTags, siteUrl } from "@/lib/site";
 
 export default async function Home({ params }: PageProps<"/[lang]">) {
   const { lang } = await params;
@@ -39,33 +37,30 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
   };
 
   return (
-    <div className="mx-auto min-h-screen max-w-6xl px-6 py-12 md:px-12 md:py-20 lg:px-24 lg:py-0">
+    <div className="mx-auto min-h-screen w-full max-w-6xl px-6 md:px-12 lg:px-24">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(personJsonLd).replace(/</g, "\\u003c"),
         }}
       />
-      <a
-        href="#content"
-        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:rounded-md focus:bg-accent focus:px-4 focus:py-2 focus:text-bg"
-      >
-        {dict.skipToContent}
-      </a>
-
-      <div className="lg:flex lg:justify-between lg:gap-4">
-        <Header locale={lang} dict={dict} />
-
-        <main id="content" className="pt-24 lg:w-1/2 lg:py-24">
-          <About locale={lang} dict={dict} />
-          <Experience locale={lang} dict={dict} />
-          <Projects projects={projects} dict={dict} />
-          <Skills locale={lang} dict={dict} />
-          <Services locale={lang} dict={dict} />
-          <Contact dict={dict} />
-          <Footer />
-        </main>
-      </div>
+      <main id="content" className="pb-12">
+        <Hero locale={lang} />
+        <PathCards locale={lang} labels={dict.home.paths} />
+        <About locale={lang} dict={dict} short titleStyle="heading" />
+        <Projects
+          projects={projects}
+          dict={dict}
+          featuredOnly
+          seeAll={{
+            href: `${localePath(lang, "/recruiters")}#projects`,
+            label: dict.home.seeAllProjects,
+          }}
+          titleStyle="heading"
+        />
+        <Contact dict={dict} compact titleStyle="heading" />
+        <Footer />
+      </main>
     </div>
   );
 }

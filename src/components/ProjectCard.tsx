@@ -8,7 +8,7 @@ type Props = { project: Project; labels: Dictionary["projects"] };
 
 export function ProjectCard({ project, labels }: Props) {
   return (
-    <article className="flex h-full flex-col rounded-lg border border-border bg-surface p-5 transition-colors hover:border-accent">
+    <article className="flex h-full flex-col rounded-lg border border-border bg-surface p-5 transition-colors hover:border-accent print:break-inside-avoid">
       <div className="flex items-start justify-between gap-3">
         <h3 className="font-semibold text-fg">
           <a

@@ -1,30 +1,28 @@
-import type { Locale } from "@/i18n/config";
+import type { ReactNode } from "react";
+
 import type { Dictionary } from "@/i18n/dictionaries/en";
 
-import { Hero } from "./Hero";
-import { LanguageSwitcher } from "./LanguageSwitcher";
-import { Nav } from "./Nav";
+import { Nav, type SectionId } from "./Nav";
 import { SocialLinks } from "./SocialLinks";
-import { ThemeToggle } from "./ThemeToggle";
 
-type Props = { locale: Locale; dict: Dictionary };
+type Props = {
+  dict: Dictionary;
+  /** Sections linked in the desktop nav. */
+  sections: readonly SectionId[];
+  /** Page intro above the nav (contains the page's `<h1>`). */
+  children: ReactNode;
+};
 
-/** Left column on desktop (sticky), top of the page on mobile. */
-export function Header({ locale, dict }: Props) {
+/** Left column on desktop (sticky below the SiteHeader), top of the page on mobile. */
+export function Header({ dict, sections, children }: Props) {
   return (
-    <header className="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-24">
+    <div className="lg:sticky lg:top-(--header-h) lg:flex lg:max-h-[calc(100vh-var(--header-h))] lg:w-1/2 lg:flex-col lg:justify-between lg:py-16">
       <div>
-        <Hero locale={locale} dict={dict} />
-        <Nav labels={dict.nav} />
+        {children}
+        <Nav sections={sections} labels={dict.nav} />
       </div>
 
-      <div className="mt-8 flex flex-wrap items-center gap-6 lg:mt-0">
-        <SocialLinks />
-        <div className="flex items-center gap-3">
-          <ThemeToggle label={dict.theme.toggle} />
-          <LanguageSwitcher locale={locale} labels={dict.language} />
-        </div>
-      </div>
-    </header>
+      <SocialLinks className="mt-8 lg:mt-0 print:hidden" />
+    </div>
   );
 }

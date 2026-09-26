@@ -6,17 +6,55 @@ export const en = {
       "Portfolio of Lucas Rocha, Senior Software Engineer: experience, projects, and skills.",
   },
   nav: {
-    about: "About",
+    facts: "Quick facts",
     experience: "Experience",
     projects: "Projects",
     skills: "Skills",
-    services: "Services",
     contact: "Contact",
+  },
+  siteNav: {
+    label: "Pages",
+    home: "Home",
+    recruiters: "Recruiters",
+    services: "Services",
+  },
+  home: {
+    paths: {
+      title: "What brings you here?",
+      recruiters: {
+        title: "I'm hiring",
+        text: "Experience, stack and CV",
+      },
+      services: {
+        title: "I need a project done",
+        text: "What I build and how we work",
+      },
+      lastVisited: "Continue where you left off",
+    },
+    seeAllProjects: "See all projects",
+  },
+  recruiters: {
+    meta: {
+      title: "Lucas Rocha | Experience & CV",
+      description:
+        "Experience, skills, projects and CV of Lucas Rocha, Senior Software Engineer. Open to remote opportunities.",
+    },
+    quickFacts: {
+      title: "Quick facts",
+      experience: "Experience",
+      years: "years",
+      currentCompany: "Current company",
+      location: "Location",
+      languages: "Languages",
+      workModel: "Work model",
+      mainStack: "Main stack",
+    },
+    linkedin: "View LinkedIn",
+    copyEmail: "Copy email",
+    copied: "Copied!",
   },
   skipToContent: "Skip to content",
   hero: {
-    viewProjects: "View projects",
-    contact: "Get in touch",
     downloadCv: "Download CV",
   },
   about: {
@@ -41,6 +79,60 @@ export const en = {
   },
   services: {
     title: "How can I help you?",
+    meta: {
+      title: "Lucas Rocha | Software Development & Automation Services",
+      description:
+        "Custom software, process automation and AI integrations by Lucas Rocha, Senior Software Engineer. Remote, from Brazil.",
+    },
+    headline: "I build software that saves your team hours every week",
+    subtitle:
+      "Custom applications, process automation and AI integrations, designed around how your business works.",
+    cta: "Talk about your project",
+    results: {
+      title: "Results",
+      years: "years building production systems",
+    },
+    problem: "The problem",
+    outcome: "What you get",
+    process: {
+      title: "How we work",
+      steps: [
+        {
+          title: "Discovery call",
+          text: "A short conversation to understand your problem, goals and current systems.",
+        },
+        {
+          title: "Proposal",
+          text: "A clear scope with steps and an estimated timeline, so you know what to expect.",
+        },
+        {
+          title: "Build",
+          text: "Development in small steps, with weekly updates and something you can try along the way.",
+        },
+        {
+          title: "Delivery & support",
+          text: "Deployment, documentation and a handover, with support for adjustments after launch.",
+        },
+      ],
+    },
+    caseStudies: {
+      title: "Case studies",
+      problem: "Problem",
+      solution: "Solution",
+      result: "Result",
+      source: "View code",
+    },
+    faq: {
+      title: "Frequently asked questions",
+    },
+    contact: {
+      title: "Let's talk about your project",
+      text: "Tell me what you need and I'll get back to you to schedule a short call.",
+      email: "Send an email",
+      whatsapp: "Message on WhatsApp",
+      emailSubject: "Project inquiry",
+      whatsappMessage: "Hi Lucas! I'd like to talk about a project.",
+    },
   },
   contact: {
     title: "Contact",
