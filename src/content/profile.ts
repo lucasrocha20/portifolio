@@ -28,10 +28,10 @@ export const profile: Profile = {
     pt: "Aberto a novas oportunidades",
   },
   workModel: { en: "Remote", pt: "Remoto" },
-  mainStack: ["TypeScript", "Node.js", "NestJS", "React", "Next.js", ".NET"],
+  mainStack: ["TypeScript", "Node.js", "NestJS", "React", "Next.js"],
   languages: {
-    en: ["Portuguese (native)", "English"],
-    pt: ["Português (nativo)", "Inglês"],
+    en: ["Portuguese (native)", "English B2"],
+    pt: ["Português (nativo)", "Inglês B2"],
   },
   focusAreas: {
     en: ["Backend", "Frontend", "Cloud", "Automation", "AI & Integrations"],
@@ -43,11 +43,12 @@ export const profile: Profile = {
     email: "lucas_rocha.14@outlook.com",
     instagram: "https://www.instagram.com/rochalucasdev",
     whatsapp: "5585996973035",
+    phone: "+55 85 99697-3035",
   },
   cvUrl: { en: "/cv-en.pdf", pt: "/cv-pt.pdf" },
   experiences: [
     {
-      company: "Cast Group",
+      company: "Cast4IT",
       role: {
         en: "Senior Software Engineer",
         pt: "Engenheiro de Software Sênior",

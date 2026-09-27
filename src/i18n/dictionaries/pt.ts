@@ -17,7 +17,7 @@ export const pt: Dictionary = {
   siteNav: {
     label: "Páginas",
     home: "Início",
-    recruiters: "Recrutadores",
+    recruiters: "Currículo",
     services: "Serviços",
   },
   home: {
@@ -87,13 +87,13 @@ export const pt: Dictionary = {
         "Software sob medida, automação de processos e integrações com IA por Lucas Rocha, Engenheiro de Software Sênior. Remoto, do Brasil.",
     },
     headline:
-      "Desenvolvo software que economiza horas da sua equipe toda semana",
+      "Desenvolvo softwares e automatizo processos que economizam horas da sua equipe",
     subtitle:
-      "Aplicações sob medida, automação de processos e integrações com IA, pensadas para a forma como o seu negócio funciona.",
+      "Aplicações sob medida, automação de processos e integrações com IA, pensadas para a forma como a sua operação funciona.",
     cta: "Fale sobre o seu projeto",
     results: {
       title: "Resultados",
-      years: "anos desenvolvendo sistemas em produção",
+      years: "Years spent developing and automating production processes.",
     },
     problem: "O problema",
     outcome: "O que você recebe",

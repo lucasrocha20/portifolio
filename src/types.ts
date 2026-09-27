@@ -7,6 +7,8 @@ export type SocialLinks = {
   instagram?: string;
   /** Number with country code, digits only (e.g. "5585999999999"); used for wa.me links. */
   whatsapp?: string;
+  /** Phone number as displayed (e.g. "+55 85 99999-9999"); used for tel: links. */
+  phone?: string;
 };
 
 export type Experience = {

@@ -12,7 +12,7 @@ import { ArrowUpRightIcon } from "./icons";
 /** Cookie with the last path picked on the home ("recruiters" | "services"). */
 const VISITOR_PATH_COOKIE = "VISITOR_PATH";
 
-const PATHS = ["recruiters", "services"] as const;
+const PATHS = ["services", "recruiters"] as const;
 type VisitorPath = (typeof PATHS)[number];
 
 function readVisitorPath(): VisitorPath | null {

@@ -12,7 +12,7 @@ type Props = { locale: Locale; dict: Dictionary };
 /** Top of the recruiters page: who, availability and the CV. */
 export function RecruiterSummary({ locale, dict }: Props) {
   const cvUrl = getCvUrl(locale);
-  const { email, linkedin, github } = profile.links;
+  const { email, phone, linkedin, github } = profile.links;
   const status = [
     profile.availability[locale],
     profile.workModel[locale],
@@ -45,7 +45,7 @@ export function RecruiterSummary({ locale, dict }: Props) {
 
       {/* Printed instead of the buttons and icons. */}
       <p className="mt-2 hidden text-sm print:block">
-        {email} · {linkedin} · {github}
+        {[email, phone, linkedin, github].filter(Boolean).join(" · ")}
       </p>
 
       <div className="mt-8 flex flex-wrap gap-3 print:hidden">

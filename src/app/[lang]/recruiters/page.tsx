@@ -51,7 +51,7 @@ export default async function RecruitersPage({
           <Experience locale={lang} dict={dict} />
           <Skills locale={lang} dict={dict} />
           <Projects projects={projects} dict={dict} />
-          <Contact dict={dict} copyEmail />
+          <Contact dict={dict} copyEmail showPhone />
           <Footer />
         </main>
       </div>

@@ -15,7 +15,7 @@ export const en = {
   siteNav: {
     label: "Pages",
     home: "Home",
-    recruiters: "Recruiters",
+    recruiters: "Resume",
     services: "Services",
   },
   home: {
@@ -84,7 +84,7 @@ export const en = {
       description:
         "Custom software, process automation and AI integrations by Lucas Rocha, Senior Software Engineer. Remote, from Brazil.",
     },
-    headline: "I build software that saves your team hours every week",
+    headline: "I develop software and automated processes that save your team hours of work",
     subtitle:
       "Custom applications, process automation and AI integrations, designed around how your business works.",
     cta: "Talk about your project",
