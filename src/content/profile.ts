@@ -12,12 +12,12 @@ export const profile: Profile = {
   },
   bio: {
     en: [
-      "Senior Software Engineer with experience designing and shipping production systems end to end.",
-      "I specialize in scalable applications, microservices, cloud environments, and process automation, turning complex business needs into reliable technical solutions.",
+      "For over 7 years I've built systems that take manual work off companies' plates. At Cast, the automations I built save over 2,600 working hours a month, about R$492K in operating costs.",
+      "I care about clean architecture, developer experience, and turning complex problems into simple solutions.",
     ],
     pt: [
-      "Engenheiro de Software Sênior com experiência em projetar e entregar sistemas em produção de ponta a ponta.",
-      "Tenho experiência em aplicações escaláveis, microsserviços, ambientes cloud e automação de processos, transformando necessidades complexas de negócio em soluções técnicas confiáveis.",
+      "Há mais de 7 anos desenvolvo sistemas que tiram trabalho manual das empresas. Na Cast, as automações que construí economizam mais de 2.600 horas de trabalho por mês, cerca de R$ 492 mil em custos operacionais.",
+      "Me importo com arquitetura limpa, experiência do desenvolvedor e em transformar problemas complexos em soluções simples.",
     ],
   },
   location: { en: "Brazil", pt: "Brasil" },
@@ -324,15 +324,15 @@ export const profile: Profile = {
     {
       value: { en: "2,606 h", pt: "2.606 h" },
       label: {
-        en: "operational hours saved per month through automation",
-        pt: "horas operacionais economizadas por mês com automação",
+        en: "operational hours saved per month by automations I delivered at Cast",
+        pt: "horas operacionais economizadas por mês em automações que entreguei na Cast",
       },
     },
     {
       value: { en: "R$492K", pt: "R$492 mil" },
       label: {
-        en: "in operational costs saved per month",
-        pt: "em custos operacionais economizados por mês",
+        en: "in operational costs saved per month by automations I delivered at Cast",
+        pt: "em custos operacionais economizados por mês em automações que entreguei na Cast",
       },
     },
   ],
@@ -397,6 +397,16 @@ export const profile: Profile = {
     },
   ],
   faq: [
+    {
+      question: {
+        en: "How much does it cost?",
+        pt: "Quanto custa?",
+      },
+      answer: {
+        en: "It depends on the scope. After our first conversation I send a proposal with a fixed price and no commitment.",
+        pt: "Depende do escopo. Depois da conversa inicial, envio uma proposta com valor fechado e sem compromisso.",
+      },
+    },
     {
       question: {
         en: "Do you work remotely?",

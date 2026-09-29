@@ -8,10 +8,12 @@ type Props = {
   afterId: string;
   /** ...and hide it again while the target section is on screen. */
   targetId: string;
+  /** Opens this external link instead of scrolling to the target. */
+  href?: string;
 };
 
 /** Floating call-to-action for small screens on long pages. */
-export function MobileCta({ label, afterId, targetId }: Props) {
+export function MobileCta({ label, afterId, targetId, href }: Props) {
   const [pastTop, setPastTop] = useState(false);
   const [atTarget, setAtTarget] = useState(false);
 
@@ -39,7 +41,9 @@ export function MobileCta({ label, afterId, targetId }: Props) {
 
   return (
     <a
-      href={`#${targetId}`}
+      {...(href
+        ? { href, target: "_blank", rel: "noreferrer noopener" }
+        : { href: `#${targetId}` })}
       aria-hidden={!visible}
       tabIndex={visible ? undefined : -1}
       className={`fixed inset-x-4 bottom-4 z-30 rounded-lg bg-accent py-3 text-center font-semibold text-bg shadow-lg shadow-black/20 transition duration-200 sm:hidden print:hidden ${

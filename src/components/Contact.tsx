@@ -1,15 +1,15 @@
 import { profile } from "@/content/profile";
 import type { Dictionary } from "@/i18n/dictionaries/en";
-import { telUrl } from "@/lib/contact";
+import { telUrl, whatsappUrl } from "@/lib/contact";
 
 import { CopyEmailButton } from "./CopyEmailButton";
-import { LinkedInIcon, MailIcon, PhoneIcon } from "./icons";
+import { LinkedInIcon, MailIcon, PhoneIcon, WhatsAppIcon } from "./icons";
 import { Section, type TitleStyle } from "./Section";
 import { SocialLinks } from "./SocialLinks";
 
 type Props = {
   dict: Dictionary;
-  /** Just email + LinkedIn on one line (home). */
+  /** Just email, WhatsApp and LinkedIn on one line (home). */
   compact?: boolean;
   /** Adds a "Copy email" button next to the address (recruiters). */
   copyEmail?: boolean;
@@ -29,6 +29,7 @@ export function Contact({
   const tel = showPhone ? telUrl() : undefined;
 
   if (compact) {
+    const whatsapp = whatsappUrl(dict.services.contact.whatsappMessage);
     return (
       <Section id="contact" title={dict.contact.title} titleStyle={titleStyle}>
         <ul className="flex flex-wrap items-center gap-x-8 gap-y-3 font-semibold text-fg">
@@ -41,6 +42,19 @@ export function Contact({
               {email}
             </a>
           </li>
+          {whatsapp && (
+            <li>
+              <a
+                href={whatsapp}
+                target="_blank"
+                rel="noreferrer noopener"
+                className="inline-flex items-center gap-2 hover:text-accent"
+              >
+                <WhatsAppIcon className="shrink-0 text-accent" />
+                WhatsApp
+              </a>
+            </li>
+          )}
           <li>
             <a
               href={linkedin}

@@ -13,6 +13,7 @@ import { PITCH_CTA_ID, ServicesPitch } from "@/components/ServicesPitch";
 import { profile } from "@/content/profile";
 import { hasLocale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/get-dictionary";
+import { whatsappUrl } from "@/lib/contact";
 import { pageMetadata } from "@/lib/metadata";
 import { localePath, siteUrl } from "@/lib/site";
 
@@ -83,6 +84,11 @@ export default async function ServicesPage({
         label={dict.services.cta}
         afterId={PITCH_CTA_ID}
         targetId="contact"
+        href={
+          dict.services.primaryChannel === "whatsapp"
+            ? whatsappUrl(dict.services.contact.whatsappMessage)
+            : undefined
+        }
       />
     </div>
   );

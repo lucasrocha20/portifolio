@@ -8,7 +8,7 @@ export const en = {
   nav: {
     facts: "Quick facts",
     experience: "Experience",
-    projects: "Projects",
+    projects: "Solutions I've already built",
     skills: "Skills",
     contact: "Contact",
   },
@@ -22,7 +22,7 @@ export const en = {
     paths: {
       title: "What brings you here?",
       recruiters: {
-        title: "I'm hiring",
+        title: "I've an open role",
         text: "Experience, stack and CV",
       },
       services: {
@@ -31,7 +31,7 @@ export const en = {
       },
       lastVisited: "Continue where you left off",
     },
-    seeAllProjects: "See all projects",
+    seeAllProjects: "See more projects",
   },
   recruiters: {
     meta: {
@@ -49,7 +49,6 @@ export const en = {
       workModel: "Work model",
       mainStack: "Main stack",
     },
-    linkedin: "View LinkedIn",
     copyEmail: "Copy email",
     copied: "Copied!",
   },
@@ -68,7 +67,7 @@ export const en = {
     present: "Present",
   },
   projects: {
-    title: "Projects",
+    title: "Solutions I've already built",
     featured: "Featured",
     stars: "stars",
     source: "Source",
@@ -84,10 +83,13 @@ export const en = {
       description:
         "Custom software, process automation and AI integrations by Lucas Rocha, Senior Software Engineer. Remote, from Brazil.",
     },
-    headline: "I develop software and automated processes that save your team hours of work",
+    headline:
+      "I develop software and automated processes that save your team hours of work",
     subtitle:
       "Custom applications, process automation and AI integrations, designed around how your business works.",
-    cta: "Talk about your project",
+    cta: "Book a free 20-min call",
+    /** Channel of the main CTAs; the other one is shown as secondary. */
+    primaryChannel: "email" as "email" | "whatsapp",
     results: {
       title: "Results",
       years: "years building production systems",
@@ -128,10 +130,13 @@ export const en = {
     contact: {
       title: "Let's talk about your project",
       text: "Tell me what you need and I'll get back to you to schedule a short call.",
+      noCommitment:
+        "No commitment: you get a proposal with scope and timeline before you decide.",
       email: "Send an email",
       whatsapp: "Message on WhatsApp",
       emailSubject: "Project inquiry",
-      whatsappMessage: "Hi Lucas! I'd like to talk about a project.",
+      whatsappMessage:
+        "Hi Lucas! I'd like to book the free 20-min call about a project.",
     },
   },
   contact: {

@@ -5,7 +5,8 @@ import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries/en";
 import { getCvUrl } from "@/lib/cv";
 
-import { DownloadIcon, LinkedInIcon } from "./icons";
+import { CopyEmailButton } from "./CopyEmailButton";
+import { DownloadIcon } from "./icons";
 
 type Props = { locale: Locale; dict: Dictionary };
 
@@ -59,19 +60,18 @@ export function RecruiterSummary({ locale, dict }: Props) {
             {dict.hero.downloadCv}
           </a>
         )}
-        <a
-          href={linkedin}
-          target="_blank"
-          rel="noreferrer noopener"
-          className={`inline-flex items-center gap-2 rounded-md px-4 py-2 text-sm font-semibold transition-colors ${
+        <CopyEmailButton
+          email={email}
+          labels={{
+            copy: dict.recruiters.copyEmail,
+            copied: dict.recruiters.copied,
+          }}
+          className={`inline-flex cursor-pointer items-center gap-2 rounded-md px-4 py-2 text-sm font-semibold transition-colors ${
             cvUrl
               ? "border border-accent text-accent hover:bg-accent-soft"
               : "bg-accent text-bg hover:opacity-90"
           }`}
-        >
-          <LinkedInIcon width={16} height={16} />
-          {dict.recruiters.linkedin}
-        </a>
+        />
       </div>
     </div>
   );

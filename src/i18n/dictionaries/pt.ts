@@ -10,7 +10,7 @@ export const pt: Dictionary = {
   nav: {
     facts: "Resumo",
     experience: "Experiência",
-    projects: "Projetos",
+    projects: "Soluções que já construí",
     skills: "Habilidades",
     contact: "Contato",
   },
@@ -24,7 +24,7 @@ export const pt: Dictionary = {
     paths: {
       title: "O que te traz aqui?",
       recruiters: {
-        title: "Estou contratando",
+        title: "Tenho uma vaga em aberto",
         text: "Experiência, stack e CV",
       },
       services: {
@@ -33,7 +33,7 @@ export const pt: Dictionary = {
       },
       lastVisited: "Continue de onde parou",
     },
-    seeAllProjects: "Ver todos os projetos",
+    seeAllProjects: "Ver mais projetos",
   },
   recruiters: {
     meta: {
@@ -51,13 +51,12 @@ export const pt: Dictionary = {
       workModel: "Modelo de trabalho",
       mainStack: "Stack principal",
     },
-    linkedin: "Ver LinkedIn",
     copyEmail: "Copiar e-mail",
     copied: "Copiado!",
   },
   skipToContent: "Pular para o conteúdo",
   hero: {
-    downloadCv: "Baixar CV",
+    downloadCv: "Baixar currículo",
   },
   about: {
     title: "Sobre",
@@ -70,7 +69,7 @@ export const pt: Dictionary = {
     present: "Atual",
   },
   projects: {
-    title: "Projetos",
+    title: "Soluções que já construí",
     featured: "Destaque",
     stars: "estrelas",
     source: "Código",
@@ -90,10 +89,13 @@ export const pt: Dictionary = {
       "Desenvolvo softwares e automatizo processos que economizam horas da sua equipe",
     subtitle:
       "Aplicações sob medida, automação de processos e integrações com IA, pensadas para a forma como a sua operação funciona.",
-    cta: "Fale sobre o seu projeto",
+    cta: "Agende uma conversa gratuita de 20 min",
+    // Pequenas e médias empresas respondem mais por WhatsApp do que por e-mail.
+    primaryChannel: "whatsapp",
     results: {
       title: "Resultados",
-      years: "Years spent developing and automating production processes.",
+      years:
+        "Anos dedicados ao desenvolvimento e à automação de processos de produção.",
     },
     problem: "O problema",
     outcome: "O que você recebe",
@@ -131,10 +133,13 @@ export const pt: Dictionary = {
     contact: {
       title: "Vamos conversar sobre o seu projeto",
       text: "Conte o que você precisa e eu retorno para marcarmos uma conversa rápida.",
+      noCommitment:
+        "Sem compromisso: você recebe uma proposta com escopo e prazo antes de decidir.",
       email: "Enviar e-mail",
       whatsapp: "Conversar no WhatsApp",
       emailSubject: "Orçamento de projeto",
-      whatsappMessage: "Olá, Lucas! Gostaria de conversar sobre um projeto.",
+      whatsappMessage:
+        "Olá, Lucas! Gostaria de agendar a conversa gratuita de 20 min sobre um projeto.",
     },
   },
   contact: {
