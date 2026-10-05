@@ -1,5 +1,7 @@
+import Image from "next/image";
 import { Fragment } from "react";
 
+import avatar from "@/app/assets/avatar.jpg";
 import { profile } from "@/content/profile";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries/en";
@@ -22,12 +24,26 @@ export function RecruiterSummary({ locale, dict }: Props) {
 
   return (
     <div className="fade-in">
-      <h1 className="text-4xl font-bold tracking-tight text-fg sm:text-5xl">
-        {profile.name}
-      </h1>
-      <p className="mt-3 text-lg font-medium text-fg sm:text-xl">
-        {profile.role[locale]}
-      </p>
+      {/* Photo beside the name so it adds no height to the sticky sidebar. */}
+      <div className="flex items-center gap-5">
+        <Image
+          src={avatar}
+          alt={profile.name}
+          width={96}
+          height={96}
+          preload
+          placeholder="blur"
+          className="size-16 shrink-0 rounded-full object-cover ring-2 ring-accent ring-offset-4 ring-offset-bg sm:size-24"
+        />
+        <div>
+          <h1 className="text-4xl font-bold tracking-tight text-fg sm:text-5xl">
+            {profile.name}
+          </h1>
+          <p className="mt-2 text-lg font-medium text-fg sm:text-xl">
+            {profile.role[locale]}
+          </p>
+        </div>
+      </div>
 
       <p className="mt-4 flex flex-wrap items-center gap-x-2 gap-y-1 text-sm">
         <span aria-hidden className="relative flex size-2.5">

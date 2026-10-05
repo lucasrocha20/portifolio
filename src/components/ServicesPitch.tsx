@@ -1,3 +1,7 @@
+import Image from "next/image";
+
+import avatar from "@/app/assets/avatar.jpg";
+import { profile } from "@/content/profile";
 import type { Dictionary } from "@/i18n/dictionaries/en";
 import { mailtoUrl, whatsappUrl } from "@/lib/contact";
 
@@ -17,51 +21,63 @@ export function ServicesPitch({ dict }: { dict: Dictionary }) {
   const whatsappFirst = dict.services.primaryChannel === "whatsapp" && whatsapp;
 
   return (
-    <div className="fade-in py-12 md:py-20">
-      <h1 className="max-w-3xl text-4xl font-bold tracking-tight text-balance text-fg sm:text-5xl">
-        {dict.services.headline}
-      </h1>
-      <p className="mt-6 max-w-2xl text-lg leading-relaxed">
-        {dict.services.subtitle}
-      </p>
-      <div id={PITCH_CTA_ID} className="mt-8 flex flex-wrap gap-3">
-        {whatsappFirst ? (
-          <>
-            <a
-              href={whatsapp}
-              target="_blank"
-              rel="noreferrer noopener"
-              className={primaryClass}
-            >
-              <WhatsAppIcon width={18} height={18} />
-              {dict.services.cta}
-            </a>
-            <a
-              href={mailtoUrl(contact.emailSubject)}
-              className={secondaryClass}
-            >
-              <MailIcon width={18} height={18} />
-              E-mail
-            </a>
-          </>
-        ) : (
-          <>
-            <a href="#contact" className={primaryClass}>
-              {dict.services.cta}
-            </a>
-            {whatsapp && (
+    <div className="fade-in flex flex-col gap-6 py-12 md:flex-row-reverse md:items-center md:justify-between md:gap-12 md:py-20">
+      {/* Small above the headline on mobile, beside the pitch from md up. */}
+      <Image
+        src={avatar}
+        alt={profile.name}
+        width={192}
+        height={192}
+        preload
+        placeholder="blur"
+        className="size-16 shrink-0 rounded-full object-cover ring-2 ring-accent ring-offset-4 ring-offset-bg md:size-40 lg:size-48"
+      />
+      <div>
+        <h1 className="max-w-3xl text-4xl font-bold tracking-tight text-balance text-fg sm:text-5xl">
+          {dict.services.headline}
+        </h1>
+        <p className="mt-6 max-w-2xl text-lg leading-relaxed">
+          {dict.services.subtitle}
+        </p>
+        <div id={PITCH_CTA_ID} className="mt-8 flex flex-wrap gap-3">
+          {whatsappFirst ? (
+            <>
               <a
                 href={whatsapp}
                 target="_blank"
                 rel="noreferrer noopener"
-                className={secondaryClass}
+                className={primaryClass}
               >
                 <WhatsAppIcon width={18} height={18} />
-                WhatsApp
+                {dict.services.cta}
               </a>
-            )}
-          </>
-        )}
+              <a
+                href={mailtoUrl(contact.emailSubject)}
+                className={secondaryClass}
+              >
+                <MailIcon width={18} height={18} />
+                E-mail
+              </a>
+            </>
+          ) : (
+            <>
+              <a href="#contact" className={primaryClass}>
+                {dict.services.cta}
+              </a>
+              {whatsapp && (
+                <a
+                  href={whatsapp}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  className={secondaryClass}
+                >
+                  <WhatsAppIcon width={18} height={18} />
+                  WhatsApp
+                </a>
+              )}
+            </>
+          )}
+        </div>
       </div>
     </div>
   );
