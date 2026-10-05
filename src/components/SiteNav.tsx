@@ -9,8 +9,8 @@ import { localePath } from "@/lib/site";
 
 const PAGES = [
   { key: "home", path: "" },
-  { key: "recruiters", path: "/recruiters" },
-  { key: "services", path: "/services" },
+  // { key: "recruiters", path: "/recruiters" },
+  // { key: "services", path: "/services" },
 ] as const;
 
 type Props = {

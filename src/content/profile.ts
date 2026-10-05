@@ -48,7 +48,7 @@ export const profile: Profile = {
   cvUrl: { en: "/cv-en.pdf", pt: "/cv-pt.pdf" },
   experiences: [
     {
-      company: "Cast4IT",
+      company: "Cast",
       role: {
         en: "Senior Software Engineer",
         pt: "Engenheiro de Software Sênior",
