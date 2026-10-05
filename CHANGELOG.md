@@ -4,6 +4,18 @@ All notable changes to this project are documented here.
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 and the project uses [Semantic Versioning](https://semver.org/).
 
+## [0.2.1] - 2026-10-05
+
+### Added
+
+- Production deploys to Vercel from GitHub Actions on each push to `main`, after lint, format and typecheck pass.
+- Deploy guide in `docs/DEPLOY.md`.
+
+### Changed
+
+- Vercel's own Git deploys are turned off for `main`; other branches keep preview URLs.
+- README deploy section shortened to point to the deploy guide.
+
 ## [0.2.0] - 2026-10-05
 
 ### Added
@@ -32,5 +44,6 @@ and the project uses [Semantic Versioning](https://semver.org/).
 - SEO: localized metadata, hreflang, OG image, sitemap, robots and JSON-LD.
 - Favicon and app icons.
 
+[0.2.1]: https://github.com/lucasrocha20/portifolio/compare/v0.2.0...v0.2.1
 [0.2.0]: https://github.com/lucasrocha20/portifolio/compare/v0.1.0...v0.2.0
 [0.1.0]: https://github.com/lucasrocha20/portifolio/releases/tag/v0.1.0
