@@ -1,6 +1,6 @@
 # portifolio
 
-Personal portfolio of Lucas Rocha, Senior Software Engineer. Built with Next.js (App Router), TypeScript and Tailwind CSS, in English and Portuguese (`/en`, `/pt`).
+Personal portfolio of Lucas Rocha, Senior Software Engineer. Built with Next.js (App Router), TypeScript and Tailwind CSS, in English and Portuguese (`/en`, `/pt`)
 
 ## Development
 
